@@ -8,7 +8,8 @@
 <body>
     <h2>사용자 로그인</h2>
 
-    <form action="login" method="post" target="/login">
+    <!-- TODO: Front Controller가 받을 수 있도록 .do로 url 변경 -->
+    <form action="login" method="post" target="/login.do">
         아이디  : <input type="text" name="id" /><br />
         비밀번호 : <input type="password" name="password" /><br />
 

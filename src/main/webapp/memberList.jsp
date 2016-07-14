@@ -14,7 +14,8 @@
         <% if (member != null) { %>
         <span style="float:right;">
             <%= member.getId() %>
-            <a style="color:white;" href="/logout">로그아웃</a>
+            <!-- TODO: Front Controller가 받을 수 있도록 .do로 url 변경 -->
+            <a style="color:white;" href="/logout.do">로그아웃</a>
         </span>
         <% } %>
     </div>

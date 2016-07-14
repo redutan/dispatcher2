@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 
+// TODO: Front Controller 도입에 따라 공통 부분 제거하고 viewUrl 전달하도록 수정
 public class LoginServlet extends HttpServlet {
     /* 로그인 폼 */
     @Override
