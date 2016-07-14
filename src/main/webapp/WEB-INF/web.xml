@@ -5,18 +5,27 @@
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     <display-name>servlet</display-name>
 
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:spring/applicationContext.xml</param-value>
+    </context-param>
+
     <!-- listener -->
     <listener>
-        <listener-class>com.nhnent.edu.dispatcher.listener.ContextLoaderListener</listener-class>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
     <!-- filter -->
     <filter>
         <filter-name>encodingFilter</filter-name>
-        <filter-class>com.nhnent.edu.dispatcher.filter.CharacterEncodingFilter</filter-class>
+        <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
         <init-param>
             <param-name>encoding</param-name>
             <param-value>UTF-8</param-value>
+        </init-param>
+        <init-param>
+            <param-name>forceEncoding</param-name>
+            <param-value>true</param-value>
         </init-param>
     </filter>
 
@@ -26,34 +35,18 @@
     </filter-mapping>
 
     <!-- serlvet -->
-    <!--    login -->
     <servlet>
-        <servlet-name>loginServlet</servlet-name>
-        <servlet-class>com.nhnent.edu.dispatcher.servlet.LoginServlet</servlet-class>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>classpath:spring/servlet-context.xml</param-value>
+        </init-param>
+        <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
-        <servlet-name>loginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
-
-    <!--    logout -->
-    <servlet>
-        <servlet-name>logoutServlet</servlet-name>
-        <servlet-class>com.nhnent.edu.dispatcher.servlet.LogoutServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>logoutServlet</servlet-name>
-        <url-pattern>/logout</url-pattern>
-    </servlet-mapping>
-
-    <!--    member list -->
-    <servlet>
-        <servlet-name>memberListServlet</servlet-name>
-        <servlet-class>com.nhnent.edu.dispatcher.servlet.MemberListServlet</servlet-class>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>memberListServlet</servlet-name>
-        <url-pattern>/member/list</url-pattern>
+        <servlet-name>dispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
 </web-app>

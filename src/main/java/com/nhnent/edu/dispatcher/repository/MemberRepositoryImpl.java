@@ -1,9 +1,11 @@
 package com.nhnent.edu.dispatcher.repository;
 
 import com.nhnent.edu.dispatcher.model.Member;
+import org.springframework.stereotype.Repository;
 
 import java.util.*;
 
+@Repository("memberRepository")
 public class MemberRepositoryImpl implements MemberRepository {
     private static Map<String, Member> memberMap = new HashMap<>();
     static {
