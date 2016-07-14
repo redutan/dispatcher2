@@ -15,17 +15,37 @@
     <!--  : register BeanNameUrlHandlerMapping, HttpRequestHandlerAdapter, SimpleControllerHandlerAdapter -->
     <mvc:annotation-driven />
 
-    <!-- TODO: modify controllers as BeanNameUrlHandlerMapping -->
     <bean name="/member/list" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
 
     <bean name="/logout" class="com.nhnent.edu.dispatcher.controller.LogoutController">
         <property name="requireSession" value="true" />
     </bean>
 
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
+    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/" />
         <property name="suffix" value=".jsp" />
+    </bean>
+
+    <bean id="messageSource" class="org.springframework.context.support.ResourceBundleMessageSource">
+        <property name="basename" value="messages/msg" />
+    </bean>
+
+    <!-- TODO: #2 locale change interceptor -->
+    <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
+        <property name="paramName" value="lang" />
+    </bean>
+
+    <!-- TODO: #3 apply interceptor -->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**" />
+            <ref bean="localeChangeInterceptor" />
+        </mvc:interceptor>
+    </mvc:interceptors>
+
+    <!-- TODO: #4 modify session locale resolver to SessionLocaleResolver  -->
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+        <property name="defaultLocale" value="ko" />
     </bean>
 
 </beans>
