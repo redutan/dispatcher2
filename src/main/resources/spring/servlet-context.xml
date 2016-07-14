@@ -30,8 +30,9 @@
         <property name="basename" value="messages/msg" />
     </bean>
 
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
-        <property name="defaultLocale" value="ko" />
-    </bean>
+    <!-- TODO: default = AcceptHeaderLocaleResolver (Accept-Language header) -->
+    <!--<bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">-->
+        <!--<property name="defaultLocale" value="ko" />-->
+    <!--</bean>-->
 
 </beans>
