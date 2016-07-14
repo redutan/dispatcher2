@@ -11,21 +11,14 @@
     <context:component-scan base-package="com.nhnent.edu.dispatcher" />
 
     <!-- @EnableWebMvc -->
+    <!-- AnnotationDrivenBeanDefinitionParser -> MvcNamespaceUtils.registerDefaultComponents() -->
+    <!--  : register BeanNameUrlHandlerMapping, HttpRequestHandlerAdapter, SimpleControllerHandlerAdapter -->
     <mvc:annotation-driven />
 
     <!-- TODO: modify controllers as BeanNameUrlHandlerMapping -->
-    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
-        <property name="mappings">
-            <value>
-                /member/list=memberListController
-                /logout=logoutController
-            </value>
-        </property>
-    </bean>
+    <bean name="/member/list" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
 
-    <bean id="memberListController" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
-
-    <bean id="logoutController" class="com.nhnent.edu.dispatcher.controller.LogoutController">
+    <bean name="/logout" class="com.nhnent.edu.dispatcher.controller.LogoutController">
         <property name="requireSession" value="true" />
     </bean>
 
