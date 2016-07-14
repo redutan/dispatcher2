@@ -13,6 +13,17 @@
     <!-- @EnableWebMvc -->
     <mvc:annotation-driven />
 
+    <!-- TODO: make LogoutController using SimpleUrlHandlerMapping -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+                /member/list=memberListController
+            </value>
+        </property>
+    </bean>
+
+    <bean id="memberListController" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
+
     <bean id="jspViewResolver" class="org.springframework.web.servlet.view.UrlBasedViewResolver">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />
         <property name="prefix" value="/WEB-INF/view/" />
