@@ -12,7 +12,7 @@
 <body>
     <h2><spring:message code="login_title" /></h2>
 
-    <form action="login" method="post" target="/login">
+    <form method="post" action="/login">
         <spring:message code="id" />  : <input type="text" name="id" /><br />
         <spring:message code="password" /> : <input type="password" name="password" /><br />
 
