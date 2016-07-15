@@ -8,7 +8,7 @@
 <body>
     <h2>사용자 로그인</h2>
 
-    <form action="login" method="post" target="/login">
+    <form method="post" action="/login">
         아이디  : <input type="text" name="id" /><br />
         비밀번호 : <input type="password" name="password" /><br />
 
