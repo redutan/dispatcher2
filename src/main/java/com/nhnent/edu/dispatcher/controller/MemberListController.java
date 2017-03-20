@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.List;
 
-// TODO: 1. @Controller로 변경
 @Controller
 public class MemberListController {
     @Autowired

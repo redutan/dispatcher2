@@ -13,8 +13,11 @@
     <!-- @EnableWebMvc -->
     <!-- AnnotationDrivenBeanDefinitionParser -> MvcNamespaceUtils.registerDefaultComponents() -->
     <!--  : register BeanNameUrlHandlerMapping, HttpRequestHandlerAdapter, SimpleControllerHandlerAdapter -->
-    <!-- TODO: 3. content negotiation manager 지정 -->
     <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
+    <!-- TODO: 6. conversionService 등록 -->
+    <!--<mvc:annotation-driven-->
+            <!--content-negotiation-manager="contentNegotiationManager"-->
+            <!--conversion-service="typeConversionService" />-->
 
     <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
         <property name="favorPathExtension" value="true" />
@@ -28,6 +31,15 @@
             </map>
         </property>
     </bean>
+
+    <!-- TODO: 6. conversionService 등록 -->
+    <!--<bean id="typeConversionService" class="org.springframework.context.support.ConversionServiceFactoryBean">-->
+        <!--<property name="converters">-->
+            <!--<set>-->
+                <!--<bean class="com.nhnent.edu.dispatcher.helper.LowerCaseStringToEnumConverterFactory" />-->
+            <!--</set>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <bean name="/logout" class="com.nhnent.edu.dispatcher.controller.LogoutController">
         <property name="requireSession" value="true" />
