@@ -29,6 +29,9 @@
 
         <!-- Spring -->
         <spring-framework.version>4.3.1.RELEASE</spring-framework.version>
+
+        <!-- jackson -->
+        <jackson2.version>2.6.5</jackson2.version>
     </properties>
 
     <dependencies>
@@ -113,6 +116,35 @@
             <artifactId>spring-context-support</artifactId>
             <version>${spring-framework.version}</version>
         </dependency>
+
+        <!-- TODO: 2. jackson2 의존성 라이브러리 추가 후 실행 -->
+        <!-- jackson2 -->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-databind</artifactId>-->
+            <!--<version>${jackson2.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-core</artifactId>-->
+            <!--<version>${jackson2.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.core</groupId>-->
+            <!--<artifactId>jackson-annotations</artifactId>-->
+            <!--<version>${jackson2.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--<artifactId>jackson-datatype-jdk8</artifactId>-->
+            <!--<version>${jackson2.version}</version>-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.fasterxml.jackson.datatype</groupId>-->
+            <!--<artifactId>jackson-datatype-jsr310</artifactId>-->
+            <!--<version>${jackson2.version}</version>-->
+        <!--</dependency>-->
+
     </dependencies>
 
     <build>
