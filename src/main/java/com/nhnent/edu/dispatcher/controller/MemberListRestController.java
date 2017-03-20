@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
-// TODO: 1. /member/list.json RestController 만들어서 실행
 // @RestController = @Controller + @ResponseBody
 @RestController
 public class MemberListRestController {
@@ -17,7 +16,8 @@ public class MemberListRestController {
     MemberRepository memberRepository;
 
 
-    @RequestMapping(value = "/member/list.json", method = RequestMethod.GET)
+    // TODO: 2. produces로 json 응답 지정
+    @RequestMapping(value = "/member/list", method = RequestMethod.GET, produces = "application/json; charset=UTF-8")
     public List<Member> getMemberList() {
         return memberRepository.list();
     }

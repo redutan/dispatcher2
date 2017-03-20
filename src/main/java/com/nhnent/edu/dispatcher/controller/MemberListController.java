@@ -3,26 +3,27 @@ package com.nhnent.edu.dispatcher.controller;
 import com.nhnent.edu.dispatcher.model.Member;
 import com.nhnent.edu.dispatcher.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.mvc.Controller;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
-public class MemberListController implements Controller {
+// TODO: 1. @Controller로 변경
+@Controller
+public class MemberListController {
     @Autowired
     MemberRepository memberRepository;
 
 
-    @Override
-    public ModelAndView handleRequest(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @RequestMapping(value = "/member/list", method = RequestMethod.GET)
+    public String handleRequest(Model model) throws Exception {
         List<Member> members = memberRepository.list();
 
-        ModelAndView mav = new ModelAndView("/memberList");
-        mav.addObject("members", members);
+        model.addAttribute("members", members);
 
-        return mav;
+        return "memberList";
     }
 
 }

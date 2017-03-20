@@ -13,9 +13,21 @@
     <!-- @EnableWebMvc -->
     <!-- AnnotationDrivenBeanDefinitionParser -> MvcNamespaceUtils.registerDefaultComponents() -->
     <!--  : register BeanNameUrlHandlerMapping, HttpRequestHandlerAdapter, SimpleControllerHandlerAdapter -->
-    <mvc:annotation-driven />
+    <!-- TODO: 3. content negotiation manager 지정 -->
+    <mvc:annotation-driven content-negotiation-manager="contentNegotiationManager" />
 
-    <bean name="/member/list" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="favorPathExtension" value="true" />
+        <property name="useJaf" value="false"/>
+        <property name="defaultContentType" value="text/html" />
+        <property name="favorParameter" value="false" />
+
+        <property name="mediaTypes">
+            <map>
+                <entry key="json" value="application/json" />
+            </map>
+        </property>
+    </bean>
 
     <bean name="/logout" class="com.nhnent.edu.dispatcher.controller.LogoutController">
         <property name="requireSession" value="true" />
