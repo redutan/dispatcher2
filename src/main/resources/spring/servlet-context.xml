@@ -11,17 +11,22 @@
     <context:component-scan base-package="com.nhnent.edu.dispatcher" />
 
     <!-- @EnableWebMvc -->
-    <!-- AnnotationDrivenBeanDefinitionParser -> MvcNamespaceUtils.registerDefaultComponents() -->
-    <!--  : register BeanNameUrlHandlerMapping, HttpRequestHandlerAdapter, SimpleControllerHandlerAdapter -->
     <mvc:annotation-driven />
 
-    <bean name="/member/list" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
-
-    <bean name="/logout" class="com.nhnent.edu.dispatcher.controller.LogoutController">
-        <property name="requireSession" value="true" />
+    <!-- TODO #1 : SimpleUrlHandlerMapping을 이용해서 MemberListController 빈을 등록하세요(*) -->
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+        <property name="mappings">
+            <value>
+            </value>
+        </property>
     </bean>
 
-    <bean id="jspViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean id="memberListController" class="com.nhnent.edu.dispatcher.controller.MemberListController" />
+
+    <!-- TODO #2-1 : SimpleServletHandlerAdapter = DispatcherServlet이 Servlet을 handler로 처리할 수 있도록 해주는 HandlerAdapter -->
+    <bean class="org.springframework.web.servlet.handler.SimpleServletHandlerAdapter" />
+
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="/WEB-INF/view/" />
         <property name="suffix" value=".jsp" />
     </bean>
@@ -30,12 +35,10 @@
         <property name="basename" value="messages/msg" />
     </bean>
 
-    <!-- TODO: #2 locale change interceptor -->
     <bean id="localeChangeInterceptor" class="org.springframework.web.servlet.i18n.LocaleChangeInterceptor">
         <property name="paramName" value="lang" />
     </bean>
 
-    <!-- TODO: #3 apply interceptor -->
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**" />
@@ -43,8 +46,8 @@
         </mvc:interceptor>
     </mvc:interceptors>
 
-    <!-- TODO: #4 modify session locale resolver to SessionLocaleResolver  -->
-    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.FixedLocaleResolver">
+    <!-- TODO #3 : locale 정보를 cookie에 저장하도록 LocaleResolver를 설정하세요(*) -->
+    <bean id="localeResolver">
         <property name="defaultLocale" value="ko" />
     </bean>
 
