@@ -17,6 +17,7 @@
     <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
         <property name="mappings">
             <value>
+                /member/list=memberListController
             </value>
         </property>
     </bean>
@@ -47,7 +48,7 @@
     </mvc:interceptors>
 
     <!-- TODO #3 : locale 정보를 cookie에 저장하도록 LocaleResolver를 설정하세요(*) -->
-    <bean id="localeResolver">
+    <bean id="localeResolver" class="org.springframework.web.servlet.i18n.CookieLocaleResolver">
         <property name="defaultLocale" value="ko" />
     </bean>
 

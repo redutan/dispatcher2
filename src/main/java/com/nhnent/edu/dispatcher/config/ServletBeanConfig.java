@@ -10,7 +10,7 @@ public class ServletBeanConfig {
     // TODO #2-4 : BeanNameUrlHandlerMapping을 이용하도록 LogoutServlet 빈을 생성하세요(*)
     // cf.)
     //  <bean name="/logout" class="com.nhnent.edu.dispatcher.servlet.LogoutServlet" />
-    @Bean
+    @Bean(name = "/logout")
     public LogoutServlet logoutServlet() {
         return new LogoutServlet();
     }
