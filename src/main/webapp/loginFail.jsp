@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <!-- TODO: Front Controller가 받을 수 있도록 .do로 url 변경 -->
-    <meta http-equiv="Refresh" content="1;url=/login.do" />
+    <meta http-equiv="Refresh" content="1;url=/login" />
     <title>로그인 실패</title>
 </head>
 <body>
