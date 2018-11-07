@@ -6,7 +6,7 @@
     <title>Login</title>
 </head>
 <body>
-    <h2>User Login</h2>
+    <h2>Member Login</h2>
 
     <!-- TODO 6: FrontController가 받을 수 있도록 .do로 url 변경 -->
     <!-- TODO 6: FrontControllerが受けられるように.doにurl変更 -->
