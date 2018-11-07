@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 // @RestController = @Controller + @ResponseBody
+// TODO: 1. @Controller로 변경
+// TODO: 1. @Controllerに変更
 @RestController
 public class MemberListRestController {
     @Autowired
