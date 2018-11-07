@@ -3,6 +3,7 @@ package com.nhnent.edu.dispatcher.controller;
 import com.nhnent.edu.dispatcher.model.Member;
 import com.nhnent.edu.dispatcher.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,8 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 // @RestController = @Controller + @ResponseBody
-// TODO: 1. @Controller로 변경
-// TODO: 1. @Controllerに変更
 @RestController
 public class MemberListRestController {
     @Autowired
