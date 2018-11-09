@@ -26,7 +26,7 @@ public class FrontControllerServlet extends HttpServlet {
         else if ("/logout.do".equals(servletPath)) {
             pageControllerPath = "/logout";
         }
-        // Member list. メンバーリスト
+        // Member list. 会員リスト
         else if ("/member/list.do".equals(servletPath)) {
             pageControllerPath = "/member/list";
         }
