@@ -23,7 +23,7 @@ public class LoginServlet extends HttpServlet {
 //        rd.forward(req, resp);
 	}
 
-	/* Processing login. プロセスログイン */
+	/* Processing login. ログイン処理 */
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		String id = req.getParameter("id");
